@@ -1,5 +1,6 @@
-Validation experiments:
+Validations:
 
 This repository contains the collection of scripts used to analyse and plot the validation experiments of the Osmolyte paper.
 
-- [CD_Frr_plotting.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Validations/CD_Frr_plotting.R) plots the CD data. It requires the raw values and fit data, created with 
+- [CD_melting_transition_fit.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Validations/CD_melting_transition_fit.py) uses a thermodynamic model to fit the unfolding curve to the measurements obtained by CD. The function defined for fitting can be used to fit any sigmoidal transition with flexible ends (linear model at the start and end). For different proteins different starting parameters might have to be chosen, however the script at the moment is not yet fully automated.
+- [CD_Frr_plotting.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Validations/CD_Frr_plotting.R) plots the CD data. It requires the raw values and fit data, created with [CD_melting_transition_fit.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Validations/CD_melting_transition_fit.py)
