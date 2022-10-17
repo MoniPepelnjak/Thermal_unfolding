@@ -2,6 +2,11 @@ Post-analysis:
 
 Post-analysis contains scripts that were used to analyse the data after the significantly changing proteins and peptides were already identified.
 
+- [FT_HT_correlations.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/FT_HT_correlations.R) script matches the HT peptides with its FT "parent peptide". The script requires the supportive function [FT_peptide_function.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Supportive_functions/FT_peptide_function.R). 
+  - The following figures are produced with this script:
+    - S1A, S1B
+  - The script applies filtering criteria for analysis, only the peptides with good enough fit are considered. This was applied after seeing that otherwise the data is too noisy. 
+  - Script can further be automated to include several experiments. Currently only one osmolyte experiment at the time is considered.
 - [Missing_analysis_figures.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Missing_analysis_figures.R) script contains the remaining analysis for the figures 2 and 3 of the paper. Besides the plotting functions, the following analysis is found:
   - The following figures are produced by this script:
     - 2B, 2C
