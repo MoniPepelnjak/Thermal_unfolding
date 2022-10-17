@@ -10,8 +10,12 @@
   # Python fits
   # Significant analysis list
 
+# Set working directory to the current file location
+library("rstudioapi")
+setwd(dirname(getActiveDocumentContext()$path))
+
 # Load in the supporting script with the functions
-source("FT_peptide_function.R")
+source("Supportive_functions/FT_peptide_function.R")
 
 # Load in the data
 LIP <- readRDS("/Volumes/My Passport for Mac/data/All_data_1M.rds")
