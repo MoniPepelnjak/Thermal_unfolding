@@ -2,6 +2,15 @@ Post-analysis:
 
 Post-analysis contains scripts that were used to analyse the data after the significantly changing proteins and peptides were already identified.
 
+- [Clustering_analysis_figures.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Clustering_analysis_figures.R) is the script used in the paper to analyse the shape profiles of LiP-MS thermal unfolding data, analyse the distribution of profiles for HT and FT peptides and for precipitators and non-precipitators and to check the changes of shape profiles upon addition of osmolytes. 
+  - The following figures are produced with this script:
+    - 1C, 1D, 1F
+    - S1G
+    - S2A
+  - The clustering for all osmolytes takes a long time, therefore the script is adapted in a way that either the clustering is performed or the files previously produced can be uploaded.
+  - Several parts of the script are hard coded for the specific dataset used: Trehalose. This is the example used in the paper, however the script could be adapted in a way such that it is more automated.
+  - The following supporting scripts are needed in the file:
+    - 
 - [FT_HT_correlations.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/FT_HT_correlations.R) script matches the HT peptides with its FT "parent peptide". The script requires the supportive script [FT_peptide_function.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Supportive_functions/FT_peptide_function.R) with defined functions. 
   - The following figures are produced with this script:
     - S1A, S1B
