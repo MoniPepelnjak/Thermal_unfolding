@@ -49,3 +49,10 @@ Post-analysis contains scripts that were used to analyse the data after the sign
   - The following figures are produced by this script:
     - 6A, 6C, 6D
   - The fitting of the curves for figure 6B is performed using the python fitting script, and the dataset has to be uploaded separately
+
+- [Activity_test_temperature.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Activity_test_temperature.R) and [Activity_test_osmolytes.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/Activity_test_osmolytes.R) script is used to calculate the effect of temperature or osmolytes on PK activity, respectively. The two scripts are essentially the same, they just account for a slightly different data structure in the two datasets. 
+  - The following figures are produced by these scripts:
+    - S1C, S1D
+
+
+
