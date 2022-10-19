@@ -44,3 +44,8 @@ Post-analysis contains scripts that were used to analyse the data after the sign
 - [PCA_analysis.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/PCA_analysis.R) performs PCA analysis on the dataset with three different PK concentrations at temperature range. The script can be adapted for PCA analysis of any kind of data. The script is used to show that scaling eliminates the differences in thermal profiles obtained by using different PK concentrations.
   - The following figures are produced by this script:
     - S1E
+
+- [PFAM_validations_DnaK_tests.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Post-analysis/PFAM_validations_DnaK_tests.R) script analyses the protein thermal stabilisation with the domain-level resolution. It performs differential analysis for multi-domain proteins and plots the DnaK specific plots.
+  - The following figures are produced by this script:
+    - 6A, 6C, 6D
+  - The fitting of the curves for figure 6B is performed using the python fitting script, and the dataset has to be uploaded separately
