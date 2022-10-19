@@ -27,6 +27,14 @@ sm_list <- c("TMAO", "Betaine", "Glycerol", "Proline", "Trehalose", "Glucose")
 values_overlap <- c()
 list_overlap <- list()
 
+my_palette = c(Control = "#8D8D92",
+               Betaine = "#8FAF7E", 
+               Trehalose = "#C18D73", 
+               TMAO = "#678EAF", 
+               Glycerol = "#997A8D", 
+               Proline = "#DFBA82",
+               Glucose = "#BB7676")
+
 # Calculate pairwise overlap as in figure 3A
 for(sm1 in sm_list){
   
