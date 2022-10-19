@@ -22,3 +22,7 @@ This repository contains the collection of scripts used to analyse and plot the 
   - The following figures were produced with this script:
     - 2D, 2E
     - S2D
+    
+- [220603_Raw_values_derivative_plot.R](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/Validations/220603_Raw_values_derivative_plot.R) plots the relative flourescence data and its derivative for DSF experiment. The script is especially useful for proteins or experiments where we observe a melting curve with two distinct melting points. In such case, the derivative can identify the melting points. Alternatively, a more complex model could be fit (two-point transition curve), however for the case of DnaK (in this script) that fitting did not allow to accurately profile the melting points. 
+ - The following figures were produced with this script:
+  - 6E
