@@ -5,7 +5,6 @@
 # Load required scripts
 source("/Users/moni/Documents/Phd/Scripts/Clustering_functions_two_conditions_2.R")
 source("/Users/moni/Documents/Phd/Scripts/Clustering_functions_two_experiments.R")
-source(("/Users/moni/Documents/Phd/Scripts/post_analysis_functions.R"))
 source(("/Users/moni/Documents/Phd/Scripts/Non_precipitator_calculation_functions.R"))
 
 all_results <- list()
