@@ -16,9 +16,10 @@ The script can be run in three different ways:
 - Running the scripts on Euler:
   - This is by far the fastest approach when fitting multiple conditions, as the approach can be parallelised.
   - For this approach, you will need to have a single folder with:
-    - bash script to run the files on euler
-    - Path direction folder with defined experiment number and small molecule
-    - Main script and fitting script
+    - The bash script [Running_all_compound.sh](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/Running_all_compound.sh) to run the files on euler
+    - [Path_directions.csv](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/Path_directions.csv) file with defined experiment number and small molecule
+    - [Main_script_fitGPs_2.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/Main_script_fitGPs_2.py) - the main script running script
+    - [fitGPs2_function.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/fitGPs2_function.py) the script with defined fitting function
     - Location of the input files in a structured folder:
       - General_path/Experiment_number/Small_molecule/python_import/Small_molecule_trypticity.csv
       - An example for TMAO: General_path/023/TMAO/python_import/TMAO_FT.csv
