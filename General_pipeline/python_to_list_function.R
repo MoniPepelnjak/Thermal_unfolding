@@ -1,13 +1,13 @@
 ### Function to load the python data and organise it with a list
 ### Peptide matching functions (by position)
 
-python_to_list <- function(defined_list, sm, path_file, common_path) {
+python_to_list <- function(defined_list, sm, path_file, common_path, fasta = "ecoli") {
   #defined_list <- list()
   sm_list <- list()
   Import <- read.delim(path_file$path[path_file$file == "Spectronaut_export" & path_file$sm == sm], header=T) %>% 
     dplyr::select(PG.FastaFiles, PG.ProteinAccessions, PEP.StrippedSequence) %>%
     unique() %>%
-    filter(PG.FastaFiles %in% c("200331_ecoli"))
+    .[grepl(pattern = fasta, .$PG.FastaFiles),]
   
   Import %<>%
     dplyr::select(PG.ProteinAccessions, PEP.StrippedSequence) %>%
