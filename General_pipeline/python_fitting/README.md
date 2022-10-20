@@ -22,6 +22,7 @@ The script can be run in three different ways:
       - Be careful that the working directory on Euler is the same as the location of the scripts you are running
       - The small molecules and the trypticity has to be defined
     - [Path_directions.csv](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/Path_directions.csv) file with defined experiment number and small molecule
+      - The important columns on this files are Experiment number and the small molecule
     - [Main_script_fitGPs_2.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/Main_script_fitGPs_2.py) - the main script running script
     - [fitGPs2_function.py](https://github.com/MoniPepelnjak/Thermal_unfolding/blob/master/General_pipeline/python_fitting/fitGPs2_function.py) the script with defined fitting function
     - Location of the input files in a structured folder:
