@@ -1,0 +1,95 @@
+Experiment,small molecule,file,path,control,sm
+21,Trehalose,python_fit_HT,/Users/moni/Documents/Phd/Experiments/021/Trehalose/python_output/solution_Trehalose_HT.csv,Control,Trehalose
+21,Trehalose,python_fit_FT,/Users/moni/Documents/Phd/Experiments/021/Trehalose/python_output/solution_Trehalose_FT.csv,Control,Trehalose
+21,Trehalose,python_score_FT,/Users/moni/Documents/Phd/Experiments/021/Trehalose/python_output/MLL_Trehalose_FT.csv,Control,Trehalose
+21,Trehalose,python_score_HT,/Users/moni/Documents/Phd/Experiments/021/Trehalose/python_output/MLL_Trehalose_HT.csv,Control,Trehalose
+21,Trehalose,library,/Users/moni/Documents/Phd/Experiments/021/200625_LU1_mpepelnjak_021_DDA_library.csv,Control,Trehalose
+21,Trehalose,annotation_file,/Users/moni/Documents/Phd/Experiments/021/annotation_table.csv,Control,Trehalose
+21,Trehalose,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/021/Trehalose/20210605_021_trehalose_Report_full.tsv,Control,Trehalose
+19,Control_test,python_fit_HT,/Users/moni/Documents/Phd/Experiments/019/python/solution_HT_all.csv,Control,Control_test
+19,Control_test,python_fit_FT,/Users/moni/Documents/Phd/Experiments/019/python/solution_FT_all.csv,Control,Control_test
+19,Control_test,python_score_FT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_FT_all.csv,Control,Control_test
+19,Control_test,python_score_HT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_HT_all.csv,Control,Control_test
+19,Control_test,annotation_file,/Users/moni/Documents/Phd/Experiments/019/Annotation_file.csv,Control,Control_test
+19,Control_test,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/019/Control_test/211105_019_control_comparison_Report.tsv,Control,Control_test
+19,Control_test,library,/Users/moni/Documents/Phd/Experiments/020/200604_mpepelnjak_020_library.csv,Control,Control_test
+20,1 M,python_fit_HT,/Users/moni/Documents/Phd/Experiments/019/python/solution_HT_TMAO1M_all.csv,control,1 M
+20,1 M,python_fit_FT,/Users/moni/Documents/Phd/Experiments/019/python/solution_FT_TMAO1M_all.csv,control,1 M
+20,1 M,python_score_FT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_FT_TMAO1M_all.csv,control,1 M
+20,1 M,python_score_HT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_HT_TMAO1M_all.csv,control,1 M
+20,1 M,library,/Users/moni/Documents/Phd/Experiments/019/library/200529_EC1_mpepelnjak_020_01_DDA.csv,control,1 M
+18,ATP,python_fit_HT,/Users/moni/Documents/Phd/Experiments/018/python/solution_HT_ATP_all.csv,control,ATP
+18,ATP,python_fit_FT,/Users/moni/Documents/Phd/Experiments/018/python/solution_FT_ATP_all.csv,control,ATP
+18,ATP,python_score_FT,/Users/moni/Documents/Phd/Experiments/018/python/MLL_FT_ATP_all.csv,control,ATP
+18,ATP,python_score_HT,/Users/moni/Documents/Phd/Experiments/018/python/MLL_HT_ATP_all.csv,control,ATP
+18,ATP,library,/Users/moni/Documents/Phd/Experiments/018/191022_MP_018_library.csv,control,ATP
+20,1.5 M,python_fit_HT,/Users/moni/Documents/Phd/Experiments/019/python/solution_HT_TMAO15M_all.csv,control,1.5 M
+20,1.5 M,python_fit_FT,/Users/moni/Documents/Phd/Experiments/019/python/solution_FT_TMAO15M_all.csv,control,1.5 M
+20,1.5 M,python_score_FT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_FT_TMAO15M_all.csv,control,1.5 M
+20,1.5 M,python_score_HT,/Users/moni/Documents/Phd/Experiments/019/python/MLL_HT_TMAO15M_all.csv,control,1.5 M
+20,1.5 M,library,/Users/moni/Documents/Phd/Experiments/019/library/200529_EC1_mpepelnjak_020_01_DDA.csv,control,1.5 M
+18,Glucose,python_fit_HT,/Users/moni/Documents/Phd/Experiments/018/Glucose/python_output/solution_Glucose_HT.csv,Control,Glucose
+18,Glucose,python_fit_FT,/Users/moni/Documents/Phd/Experiments/018/Glucose/python_output/solution_Glucose_FT.csv,Control,Glucose
+18,Glucose,python_score_FT,/Users/moni/Documents/Phd/Experiments/018/Glucose/python_output/MLL_Glucose_FT.csv,Control,Glucose
+18,Glucose,python_score_HT,/Users/moni/Documents/Phd/Experiments/018/Glucose/python_output/MLL_Glucose_HT.csv,Control,Glucose
+18,Glucose,annotation_file,/Users/moni/Documents/Phd/Experiments/018/Annotation_table.csv,Control,Glucose
+18,Glucose,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/018/Glucose/20210605_221837_018_glucose_Report.tsv,Control,Glucose
+18,Glucose,library,/Users/moni/Documents/Phd/Experiments/018/191022_MP_018_library.csv,Control,glucose
+22,Proline0,python_fit_HT,/Users/moni/Documents/Phd/Experiments/022/proline/python/solution_HT_Proline_all.csv,Control,Proline0
+22,Proline0,python_fit_FT,/Users/moni/Documents/Phd/Experiments/022/proline/python/solution_FT_Proline_all.csv,Control,Proline0
+22,Proline0,python_score_FT,/Users/moni/Documents/Phd/Experiments/022/proline/python/MLL_FT_Proline_all.csv,Control,Proline0
+22,Proline0,python_score_HT,/Users/moni/Documents/Phd/Experiments/022/proline/python/MLL_HT_Proline_all.csv,Control,Proline0
+22,Proline0,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,Control,Proline0
+22,Proline0,annotation_file,/Users/moni/Documents/Phd/Experiments/022/annotation_table.csv,Control,Proline0
+22,Proline0,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/022/Proline0/20200919_162934_mpepelnjak_Report.tsv,Control,Proline0
+22,Betaine,python_fit_HT,/Users/moni/Documents/Phd/Experiments/022/betaine/python/solution_HT_Betaine_all.csv,Control,Betaine
+22,Betaine,python_fit_FT,/Users/moni/Documents/Phd/Experiments/022/betaine/python/solution_FT_Betaine_all.csv,Control,Betaine
+22,Betaine,python_score_FT,/Users/moni/Documents/Phd/Experiments/022/betaine/python/MLL_FT_Betaine_all.csv,Control,Betaine
+22,Betaine,python_score_HT,/Users/moni/Documents/Phd/Experiments/022/betaine/python/MLL_HT_Betaine_all.csv,Control,Betaine
+22,Betaine,annotation_file,/Users/moni/Documents/Phd/Experiments/022/annotation_table.csv,Control,Betaine
+22,Betaine,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/022/Betaine/20200920_015424_mpepelnjak_Report.tsv,Control,Betaine
+22,Betaine,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,Control,Betaine
+23,TMAO_2,python_fit_HT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1.5M/python/solution_HT_Tmao_all.csv,Control,TMAO_2
+23,TMAO_2,python_fit_FT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1.5M/python/solution_FT_Tmao_all.csv,Control,TMAO_2
+23,TMAO_2,python_score_FT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1.5M/python/MLL_FT_Tmao_all.csv,Control,TMAO_2
+23,TMAO_2,python_score_HT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1.5M/python/MLL_HT_Tmao_all.csv,Control,TMAO_2
+23,TMAO_2,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,TMAO_2
+23,TMAO_2,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/TMAO_2/20210607_023_TMAO_2_Report.tsv,Control,TMAO_2
+23,TMAO_2,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,control,TMAO_2
+23,Glycerol_2,python_fit_HT,/Users/moni/Documents/Phd/Experiments/023/glycerol_2.1M/python/solution_HT_Glycerol_all.csv,Control,Glycerol_2
+23,Glycerol_2,python_fit_FT,/Users/moni/Documents/Phd/Experiments/023/glycerol_2.1M/python/solution_FT_Glycerol_all.csv,Control,Glycerol_2
+23,Glycerol_2,python_score_FT,/Users/moni/Documents/Phd/Experiments/023/glycerol_2.1M/python/MLL_FT_Glycerol_all.csv,Control,Glycerol_2
+23,Glycerol_2,python_score_HT,/Users/moni/Documents/Phd/Experiments/023/glycerol_2.1M/python/MLL_HT_Glycerol_all.csv,Control,Glycerol_2
+23,Glycerol_2,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,Glycerol_2
+23,Glycerol_2,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/Glycerol_2/20201112_154645_mpepelnjak_Report.tsv,Control,Glycerol_2
+23,Glycerol_2,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,control,Glycerol_2
+23,Proline,python_fit_HT,/Users/moni/Documents/Phd/Experiments/023/Proline/python_output/solution_Proline_HT.csv,Control,Proline
+23,Proline,python_fit_FT,/Users/moni/Documents/Phd/Experiments/023/Proline/python_output/solution_Proline_FT.csv,Control,Proline
+23,Proline,python_score_FT,/Users/moni/Documents/Phd/Experiments/023/Proline/python_output/MLL_Proline_FT.csv,Control,Proline
+23,Proline,python_score_HT,/Users/moni/Documents/Phd/Experiments/023/Proline/python_output/MLL_Proline_HT.csv,Control,Proline
+23,Proline,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,Control,Proline
+23,Proline,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,Proline
+23,Proline,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/Proline/20201203_160411_mpepelnjak_Report.tsv,Control,Proline
+23,TMAO,python_fit_HT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1M/python/solution_TMAO_1_HT_all.csv,Control,TMAO
+23,TMAO,python_fit_FT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1M/python/solution_TMAO_1_FT_all.csv,Control,TMAO
+23,TMAO,python_score_FT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1M/python/MLL_TMAO_1_FT_all.csv,Control,TMAO
+23,TMAO,python_score_HT,/Users/moni/Documents/Phd/Experiments/023/TMAO_1M/python/MLL_TMAO_1_HT_all.csv,Control,TMAO
+23,TMAO,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,TMAO
+23,TMAO,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/TMAO/20201204_094248_mpepelnjak_Report.tsv,Control,TMAO
+23,TMAO,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,control,TMAO
+23,Proline_2,python_fit_HT,/Users/moni/Documents/Phd/Experiments/023/proline_1.5M/python/solution_Proline_1.5M_HT_all.csv,Control,Proline_2
+23,Proline_2,python_fit_FT,/Users/moni/Documents/Phd/Experiments/023/proline_1.5M/python/solution_Proline_1.5M_FT_all.csv,Control,Proline_2
+23,Proline_2,python_score_FT,/Users/moni/Documents/Phd/Experiments/023/proline_1.5M/python/MLL_Proline_1.5M_FT_all.csv,Control,Proline_2
+23,Proline_2,python_score_HT,/Users/moni/Documents/Phd/Experiments/023/proline_1.5M/python/MLL_Proline_1.5M_HT_all.csv,Control,Proline_2
+23,Proline_2,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,Proline_2
+23,Proline_2,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/Proline_2/20210608_023_Proline_2.tsv,Control,Proline_2
+23,proline_2,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,control,proline_2
+15,low_PK,python_fit_HT,/Users/moni/Documents/Phd/Experiments/015/015_conc_data/solution_conc_HT_all.csv,control,low_PK
+15,low_PK,python_fit_FT,/Users/moni/Documents/Phd/Experiments/015/015_conc_data/solution_conc_FT_all.csv,control,low_PK
+15,low_PK,python_score_FT,/Users/moni/Documents/Phd/Experiments/015/015_conc_data/MLL_conc_FT_all.csv,control,low_PK
+15,low_PK,python_score_HT,/Users/moni/Documents/Phd/Experiments/015/015_conc_data/MLL_conc_HT_all.csv,control,low_PK
+15,low_PK,library,/Users/moni/Documents/Phd/Experiments/022/200608_mpepelnjak_masterlibrary.csv,control,low_PK
+23,Betaine_2,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,Betaine_2
+23,Betaine_2,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/Betaine_2/20210605_023_Betaine_2_Report.tsv,Control,Betaine_2
+23,Glycerol,annotation_file,/Users/moni/Documents/Phd/Experiments/023/annotation_table.csv,Control,Glycerol
+23,Glycerol,Spectronaut_export,/Users/moni/Documents/Phd/Experiments/023/Glycerol/20210607_023_Glycerol_Report.tsv,Control,Glycerol
