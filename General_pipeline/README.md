@@ -53,3 +53,5 @@ The following two lists are exported in a format .RDS format.
   - Combined list of all python fitting outputs, containing the fits, the goodness of fit and confidence interval information
 - **significant_all**
   - Combined list of significant scores on peptide level, AA-level and protein level for all analysed small molecules
+
+Both files are needed to perform the further analysis of osmolyte effects as described in the [Post-analysis](Post-analysis) folder. 
