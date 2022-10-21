@@ -1,7 +1,15 @@
 #### Functions ####
+# The function that performs fuzzy clustering
+
+# k = number of clusters
+#show_clusters = should you plot the clusters
+# cutoff - cutoff for determining whether the cluster shows aggregation behavior or not. The 1.75 was chosen by manual validation to best descriminate between unfolding profiles and aggregation profiles
+# Control - the name of the control condition in your experiment
+
 fuzzy_clusters_two_conditions <- function(all_results, sm, control="control", k = 8, show_clusters = FALSE, cutoff= 1.65) {
   set.seed(123) 
   
+  # Only select high quality peptides, since peptides with poor fit contribute too much noise to the data 
   high_quality <- all_results[[sm]]$python_score %>%   # extract python "score" data
     filter(!!ensym(sm) > 0.5 &
              !!ensym(control) > 0.5) %>%      # only take the ones that have a good enough fit
@@ -27,7 +35,6 @@ fuzzy_clusters_two_conditions <- function(all_results, sm, control="control", k 
   res <- res[,-1]
   
   # Perform fuzzy k-means clustering
-  
   fuzzy <- fclust::FKM.ent(res, k=k, stand = 1, ent=2)
   
   fuzzy_plot <- fuzzy$H %>%
