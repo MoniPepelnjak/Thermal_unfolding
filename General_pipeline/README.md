@@ -5,12 +5,12 @@ This folder contains the scripts that are required to analyse the LiP-MS thermal
 [Main_script_loading.R](Main_script_loading.R) is the main script for the analysis of the thermal unfolding data, combining the different steps of the analysis.
 
 ## Required files for the analysis:
-  - Path file: file that defines the experiments number, small molecule analysed and the paths to most important files
+  - *Path file:* file that defines the experiments number, small molecule analysed and the paths to most important files
     - The important files to include in the path file:
       - Spectronaut export file - exported in long format, as .tsv
       - Annotation file - in .csv format
       
-  - Spectronaut export file with the following columns:
+  - *Spectronaut export file* with the following columns:
     - R.FileName
     - PG.FastaFile
     - PG.ProteinAccessions
@@ -20,7 +20,7 @@ This folder contains the scripts that are required to analyse the LiP-MS thermal
     - PEP.DigestType....TrypsinP.
     - PEP.Quantity
     
-  - Annotation file with the following information:
+  - *Annotation file* with the following information:
     - R.FileName: Exactly the same file name as the raw file imported in Spectronaut
     - variable1: The temperature of experiment
     - variable2: The condition analysed --> the variable2 name should match the small molecule and sm name in the path file!!
