@@ -1,10 +1,10 @@
-#General pipeline
+# General pipeline
 
 This folder contains the scripts that are required to analyse the LiP-MS thermal unfolding data from Spectronaut file to calculating the stabilisation scores on peptide and protein level.
 
 [Main_script_loading.R](Main_script_loading.R) is the main script for the analysis of the thermal unfolding data, combining the different steps of the analysis.
 
-##Required files for the analysis:
+## Required files for the analysis:
   - Path file: file that defines the experiments number, small molecule analysed and the paths to most important files
     - The important files to include in the path file:
       - Spectronaut export file - exported in long format, as .tsv
