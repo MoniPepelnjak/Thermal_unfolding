@@ -11,13 +11,19 @@
   # Aggrescan predictions
   # * Dataset of ribosomal proteins
 
+library("rstudioapi")
+setwd(dirname(getActiveDocumentContext()$path))
+
+# Define the common path
+path <- "/Volumes/My Passport for Mac/Final_data/"
+
 # Load in the functions
 # Calculate whether the protein precipitates based on our TPP and Savitski published dataset
-source("/Users/moni/Documents/Phd/Scripts/Non_precipitator_calculation_functions.R")
+source("Supportive_functions/Non_precipitator_calculation_functions.R")
 # Mostly plotting functions for thermal denaturation data
 source("/Users/moni/Documents/Phd/Scripts/post_analysis_functions.R")
 # Script to compare the features between two protein groups
-source("/Users/moni/Documents/Phd/Scripts/Structural_predictions_diff_test_functions.R")
+source("Supportive_functions/Structural_predictions_diff_test_functions.R")
 
 
 # Load the libraries
@@ -31,25 +37,25 @@ library(ComplexHeatmap)
 
 # Load in the necessary data:
 # Load in the LiP-MS data
-significant_all <- readRDS("/Volumes/My Passport for Mac/data/Significant_both_quantiles.rds")
-all_results <- readRDS("/Volumes/My Passport for Mac/data/All_data_1M.rds")
+significant_all <- readRDS(paste(path, "LiP/Significant_both_quantiles.rds", sep=""))
+all_results <- readRDS(paste(path, "LiP/All_data_1M.rds", sep=""))
 
 # Load in ribosomal proteins to exclude them from the analysis
-ribosomal_proteins <- read.csv("/Users/moni/Documents/Phd/databases/ribosomal_proteins.csv") %>%
+ribosomal_proteins <- read.csv(paste(path,  "Databases/ribosomal_proteins.csv", sep="")) %>%
   filter(grepl("ribosomal protein", Protein.names), 
          Status == "reviewed")
 
 # Load in the TPP data
-TPP_all <- readRDS("/Volumes/My Passport for Mac/data/Python_TPP_fits_all.rds")
-TPP_significant <- readRDS("/Volumes/My Passport for Mac/data/Significant_TPP.rds")
+TPP_all <- readRDS(paste(path, "TPP/Python_TPP_fits_all.rds", sep=""))
+TPP_significant <- readRDS(paste(path, "TPP/Significant_TPP.rds", sep=""))
 
 # Load in the protein-feature predictions
-All_combined_predictions <- read.csv("/Volumes/My Passport for Mac/data/Ecoli_combined_predictions.csv")
-GO_codes <- read.csv("/Users/moni/Documents/Phd/databases/GO_terms_ecoli.csv", stringsAsFactors=F)
+All_combined_predictions <- read.csv(paste(path, "Databases/Ecoli_combined_predictions.csv", sep=""))
+GO_codes <- read.csv(paste(path, "Databases/GO_terms_ecoli.csv", sep=""), stringsAsFactors=F)
 
 # Load in the data from Savitski publication doi: 10.15252/msb.20188242., supplementary table 3
-Savitski <- read.csv("/Users/moni/Documents/Phd/databases/Savitski_melting_temp.csv")
-Agrescan_list <-readRDS("/Volumes/My Passport for Mac/data/Aggrescan_annotations.RDS")
+Savitski <- read.csv(paste(path, "Databases/Savitski_melting_temp.csv", sep=""))
+Agrescan_list <-readRDS(paste(path, "Databases/Aggrescan_annotations.RDS", sep=""))
 
 # Define colors used
 # Color palette includes the names of the small molecule
@@ -151,7 +157,7 @@ Figure_5C <- ggplot(df_all, aes(x=condition, y=n, fill=Change)) +
         axis.title.x = element_blank(),
         legend.title = element_blank()) +
   xlab("")
-#ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5C.pdf", height=4, width=4)
+#ggsave(paste(path, "Figures/Figure_5C.pdf", sep=""), height=4, width=4)
 
 # Isolate the TMAO part, as TMAO shows the most interesting results
 comparisons_all <- comparisons[comparisons$Condition == "TMAO",] %>%
@@ -265,7 +271,8 @@ ggplot(df_all_LIP, aes(x=condition, y=n_percentage, fill=Proteolysis)) +
   ylab("Percentage of peptides") +
   theme_classic()
 
-ggsave("/Users/moni/Documents/Phd/Experiments/Final_data/Barplot_LiP_proteolysis_peptide_level.pdf")
+ggsave(paste(path,  "Figures/Barplot_LiP_proteolysis_peptide_level.pdf", sep=""))
+
 df_all_LIP$condition <- factor(df_all_LIP$condition, levels = sm_list)
 Figure_5H <- ggplot(df_all_LIP, aes(x=condition, y=n_percentage_protein, fill=Proteolysis)) +
   geom_bar(stat="identity", position="dodge", col="black") +
@@ -281,7 +288,7 @@ Figure_5H <- ggplot(df_all_LIP, aes(x=condition, y=n_percentage_protein, fill=Pr
         axis.title = element_text(size=15),
         axis.title.x = element_blank()) +
   labs(fill = "Digestion")
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5H.pdf",Figure_5H, height=4, width=5)
+ggsave(paste(path, "Figures/Figure_5H.pdf", sep=""),Figure_5H, height=4, width=5)
 
 ### Frr examples:
 plot_peptide_adjusted <- function(all_results, sm_all, control = "control", peptide, factor_levels, pos="top_right"){
@@ -356,7 +363,7 @@ Figure_5E <- plot_peptide_adjusted(TPP_all, sm_all = c("TMAO", "glucose", "proli
   facet_wrap(~exp, scales="free", ncol=1) + 
   ylim(c(-0.15, 1.29)) +
   ylab("Abundance")
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5E.pdf", Figure_5E, height=5, width=2)
+ggsave(paste(path, "Figures/Figure_5E.pdf", sep=""), Figure_5E, height=5, width=2)
 
 
 sm_list <-  c("TMAO", "Betaine", "Glycerol", "Proline", "Trehalose", "Glucose")
@@ -366,14 +373,14 @@ Figure_5F1 <- plot_peptide_adjusted(all_results, sm_all = sm_list, control = "Co
   ylim(c(-0.15, 1.3)) +
   ylab("Abundance")
 
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5F1.pdf", Figure_5F1, height=3.2, width=3)
+ggsave(paste(path, "Figures/Figure_5F1.pdf", sep=""), Figure_5F1, height=3.2, width=3)
 
 Figure_5F2 <- plot_peptide_adjusted(all_results, sm_all = sm_list, control = "Control", peptide =  "ASDLGLNPNSAGSDIR", factor_levels = sm_list) +
   facet_wrap(~exp, scales="free", ncol=2) + 
   ylim(c(-0.255, 1.25)) +
   ylab("Abundance")
 
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5F2.pdf", Figure_5F2, height=3.2, width=3)
+ggsave(paste(path, "Figures/Figure_5F2.pdf", sep=""), Figure_5F2, height=3.2, width=3)
 
 ## Agrescan figure 
 prot <- "P0A805"
@@ -422,31 +429,7 @@ Figure_5F3 <- ggplot(LIP_test, aes(x=Position, y=Measure, fill=Color, col=Color)
         panel.grid.major = element_blank()) +
   labs(fill = "Agg.")
   
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5F3.pdf", Figure_5F3, height=1.75, width=12)
-
-ggplot(comparisons_all, aes(x=is_significant, y=MoRFchibi)) +
-  geom_violin() +
-  geom_boxplot(width=0.2, outlier.alpha = 0) +
-  stat_compare_means() +
-  facet_wrap(~Precipitator)
-
-ggplot(comparisons_all, aes(x=MoRFchibi, col=is_significant)) +
-  geom_density() +
-  facet_wrap(~Precipitator)
-
-
-sub_fasta <- fasta_ecoli[grepl("P00350", names(fasta_ecoli))]
-
-protein_sequence <- fasta_ecoli %>%
-  lapply(., FUN = function(x) paste(x, sep="", collapse=""))
-proteins_ecoli <- names(protein_sequence)
-names(protein_sequence) <-  lapply(strsplit(proteins_ecoli, split="\\|"), FUN = function(x) "[[" (x,2))
-prot_target <- comparisons_all$peptide[comparisons_all$qvalue > 0.05 & !comparisons_all$Precipitator] %>%
-  unique() %>%
-  .[1:306]
-
-protein_sequence <- protein_sequence[prot_target]
-write.fasta(protein_sequence, names(protein_sequence), "/Users/moni/Documents/Always_precipitators_2.fasta")
+ggsave(paste(path, "Figures/Figure_5F3.pdf", sep=""), Figure_5F3, height=1.75, width=12)
 
 ##### Barplot for stabilisation ####
 sm_TPP <- c("TMAO", "glucose", "proline")
@@ -475,7 +458,7 @@ Figure_S5A <-  ggplot(all_stabilised[all_stabilised$Stabilisation > 0,], aes(x=C
   theme(legend.position = "none") + 
   ylab("Stabilisation score") +
   xlab("")
-ggsave("/Users/moni/Documents/Phd/Experiments/Final_data/Boxplot_stabilisation_TPP.pdf")
+ggsave(paste(path, "Figures/Boxplot_stabilisation_TPP.pdf", sep=""))
 
 barplot_df <- data.frame(Condition = c("TMAO", "Glucose", "Proline"),
                          Percentage = unlist(percentage))
@@ -488,7 +471,7 @@ Figure_S5B <- ggplot(barplot_df, aes(x=Condition, y=Percentage, fill=Condition))
   theme(legend.position = "none") +
   ylab("Percentage stabilised proteins") +
   xlab("")
-ggsave("/Users/moni/Documents/Phd/Experiments/Final_data/Barplot_stabilisation_TPP.pdf")
+ggsave(paste(path, "Figures/Barplot_stabilisation_TPP.pdf", sep=""))
 
 sm_LIP <- c("TMAO", "Glucose", "Proline")
 df_all <- NULL
@@ -543,14 +526,14 @@ Figure_5B <- ggplot(df_all, aes(x=Condition)) +
         axis.text.y = element_text(size=15,  color="black"), 
         axis.title = element_text(size=15),
         axis.title.x = element_blank())
-ggsave("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_5B.pdf",Figure_5B, height=4, width=4 )
+ggsave(paste(path, "Figures/Figure_5B.pdf", sep=""),Figure_5B, height=4, width=4 )
 
 names <- c("cysE", "guaC", "trpB", "clpP", "hisD")
 pairs_TPP <- c("P0A9D4", "P60560", "P0A879", "P0A6G7", "P06988")
 pairs_LIP <- c("EVVEEAYAADPEMIASAACDIQAVR", "VGIGPGSVCTTR", "TNQVLGQALLAK", "SLEQIER", "SFNTIIDWNSCTAEQQR")
 
 for(i in 1:length(names)){
-  pdf(paste("/Users/moni/Documents/Phd/Experiments/Final_data/TPP_LiP_agg_example_", names[i], ".pdf", sep="" ), height = 3, width = 6)
+  pdf(paste(path, "Figures/TPP_LiP_agg_example_", names[i], ".pdf", sep="" ), height = 3, width = 6)
   new_labels <- c("TMAO" = "TPP profile")
   pT <- plot_peptide_grid(TPP_all, "TMAO", control = "control", pairs_TPP[i]) +
     theme(panel.grid = element_blank(), title = element_blank()) +
@@ -580,7 +563,7 @@ Figure_S5C <- ggplot(TMAO_box[TMAO_box$n_peptide > 1,], aes(x=Decreased_Aggregat
   theme(legend.position = "none") +
   ylab("LiP Protein Stabilisation") +
   xlab("TPP decreased aggregation")
-ggsave("/Users/moni/Documents/Phd/Experiments/Final_data/Decreased_aggregation_LiP_stabilisation.pdf")
+ggsave(paste(path, "Figures/Decreased_aggregation_LiP_stabilisation.pdf", sep=""))
 
 
 ### Enrichment analysis ###
@@ -623,7 +606,7 @@ ggplot(signif_table_all, aes(y=Term, x=-log10(classicFisher), fill=Analysis)) +
   theme_classic() +
   ylab("GO term") +
   xlab("-log10(pvalue)")
-ggsave("/Users/moni/Documents/Phd/Experiments/Final_data/GO_enrichment_aggregatiors.pdf")
+ggsave(paste(path, "Figures/GO_enrichment_aggregatiors.pdf", sep=""))
 
 ## Characteristics analysis for figure 5D:
 group1 <- comparisons_all$Protein[comparisons_all$Aggregation == "Promoted"]
@@ -696,7 +679,7 @@ rownames(matrix_colored)[rownames(matrix_colored) == "hydrophobicity"] <- "Hydro
 rownames(matrix_colored)[rownames(matrix_colored) == "protein length"] <- "Protein length"
 
 library(ComplexHeatmap)
-#pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Figure_3G_colored.pdf", height=8, width = 4.5)
+#pdf(paste(path, "Figures/Figure_3G_colored.pdf", sep=""), height=8, width = 4.5)
 HM <- Heatmap(matrix_colored, name = "-log10(q-value)", col = f2,
               cluster_rows = TRUE, cluster_columns = FALSE,
               rect_gp = grid::gpar(col = "gray40", lwd = 1),
