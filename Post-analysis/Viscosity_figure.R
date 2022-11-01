@@ -6,11 +6,13 @@
   # fPSA and ???Gtr from the literature
 # The script then fits the linear model between the mean LiP stabilisation score and the properties of osmolytes
 
+path <- "/Volumes/My Passport for Mac/Final_data/"
+
 # Load in the viscosity data
-viscosity <- read.csv("/Users/moni/Documents/Phd/Experiments/TD_analysis/Viscosity.csv")
+viscosity <- read.csv(paste(path, "/Validations/Viscosity/Viscosity.csv", sep = ""))
 
 # Load in the LiP-MS significance data
-significant_TMAO <- readRDS("/Volumes/PMONIKA/data/Significant_1M.rds")
+significant_all <- readRDS(paste(path, "LiP/Significant_both_quantiles.rds", sep=""))
 
 # Load in the libraries
 library(dplyr)
@@ -27,7 +29,7 @@ my_palette = c(Betaine = "#B5C3AD",
                Glucose = "#C78C8C")
 
 # Calculate the mean values from LiP-MS data and make a df
-mean_values <- lapply(significant_TMAO, FUN = function(x) mean(x$Protein_level$Protein_stabilisation )) 
+mean_values <- lapply(significant_all, FUN = function(x) mean(x$Protein_level$Protein_stabilisation )) 
 df <- data.frame(Condition = names(mean_values), 
                  Mean_stability = unlist(mean_values))
 
@@ -45,7 +47,7 @@ df$is_sugar <- ifelse(df$Condition%in% c("Trehalose"),  "Trehalose",
                       ifelse(df$Condition%in% c("Glucose"), "Glucose", "Not_Sugar"))
 
 # fPSA
-cairo_pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Figure2I.pdf", width=3, height=3)
+cairo_pdf(paste(path, "Figures/Figure2I.pdf", sep=""), width=3, height=3)
 ggplot(df_long[df_long$variable == "fPSA",], aes(y=value, x=Mean_stability)) +
   geom_smooth(method="lm", lty="dashed", aes(group_by = is_sugar), col = "gray60", lty="dashed", alpha=0.2) + 
   geom_point(aes(fill=Condition), colour="black",pch=21, size=4) + 
@@ -70,7 +72,7 @@ summary(lm(Mean_stability~fPSA, data=df_2 ))
 df_R2_Viscosity <- round(summary(lm(df_long$value[df_long$variable == "Viscosity"] ~ df_long$Mean_stability[df_long$variable == "Viscosity"]))$adj.r.squared,2)
 
 # Viscosity plot
-cairo_pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Figure2G.pdf", width=3, height=3)
+cairo_pdf(paste(path, "Figures/Figure2G.pdf", sep=""), width=3, height=3)
 ggplot(df_long[df_long$variable == "Viscosity",], aes(y=value, x=Mean_stability)) +
   geom_smooth(method="rlm", col = "gray60", lty="dashed", alpha=0.2) + 
   geom_point(aes(fill=Condition), colour="black",pch=21, size=4) + 
@@ -94,7 +96,7 @@ df_R2_MS <- round(summary(rlm(df_long$value[df_long$variable == "dG"] ~ df_long$
 summary(lm(df_long$value[df_long$variable == "TPSA" & df_long$Condition %in% c("TMAO", "Glycerol", "Proline", "Betaine")  ] ~ df_long$Mean_stability[df_long$variable == "TPSA" & df_long$Condition %in% c("TMAO", "Glycerol", "Proline", "Betaine")]))
 
 # Mass concentration figure
-cairo_pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Figure2F.pdf", width=3, height=3)
+cairo_pdf(paste(path, "Figures/Figure2F.pdf", sep=""), width=3, height=3)
 ggplot(df_long[df_long$variable == "Mass_conc",], aes(y=value, x=Mean_stability)) +
   geom_smooth(method="rlm", col = "gray60", lty="dashed", alpha=0.2) + 
   geom_point(aes(fill=Condition), colour="black",pch=21, size=4) + 
@@ -116,7 +118,7 @@ ggplot(df_long[df_long$variable == "Mass_conc",], aes(y=value, x=Mean_stability)
 dev.off()
 
 # dG figure
-cairo_pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Figure2H.pdf", width=3, height=3)
+cairo_pdf(paste(path, "Figures/Figure2H.pdf", sep=""), width=3, height=3)
 ggplot(df_long[df_long$variable == "dG",], aes(y=value, x=Mean_stability)) +
   geom_smooth(method="rlm", col = "gray60", lty="dashed", alpha=0.2) + 
   geom_point(aes(fill=Condition), colour="black",pch=21, size=4) + 
@@ -155,7 +157,7 @@ p <- p +
 leg <- get_legend(p, position = "bottom") 
 
 # Convert to a ggplot and print
-cairo_pdf("/Users/moni/Documents/Phd/Osmolyte_paper/Color_palette.pdf", width=8, height=0.25)
+cairo_pdf(paste(path, "Figures/Color_palette.pdf", sep=""), width=8, height=0.25)
 as_ggplot(leg)
 dev.off()
 
