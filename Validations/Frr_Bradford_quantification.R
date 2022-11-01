@@ -21,7 +21,7 @@ my_palette = c(Control = "#8D8D92",
                Low_PK = "#A38AAB")
 
 # Temperature assays
-# 
+# Monitor the aggregation of Frr in control condition or in presence of 1 M TMAO, Glycerol or Betaine at different temperatures
 Temp_assay <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation_assays/Control_TMAO_Betaine_Glycerol_Temp_assay.csv")
 
 Temp_assay_2 <- Temp_assay %>%
@@ -46,7 +46,9 @@ p1 <- ggplot(Temp_assay_2, aes(x=Temperature, y=Y_percentage)) +
 
 ggsave(paste("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation/Frr_aggregation_temperature_dependance.pdf", sep=""), plot = p1, height = 4, width=5)
 
-# Aggregation assay at 76??C
+# Aggregation assay at 76?
+# Protein concentration: 0.3 mg/ml
+# Time of incubation: 5 minutes
 Agg_assay <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation_assays/All_compounds_Bradford_assay.csv")
 
 Background = mean(Temp_assay$Absorbance[Temp_assay$Sample == "Negative"])
