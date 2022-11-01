@@ -2,9 +2,13 @@
 ## Script to analyse the precipitation of Frr and Gnd
 ## Script produces the figures used in the Figure 5 and Figure S5 of the Osmolyte paper
 
+# Load libraries
 library(magrittr)
 library(ggplot2)
 library(dplyr)
+
+# Define the common path
+Path <- ("/Volumes/My Passport for Mac/Final_data")
 
 ####
 my_palette = c(Control = "#8D8D92",
@@ -22,7 +26,7 @@ my_palette = c(Control = "#8D8D92",
 
 # Temperature assays
 # Monitor the aggregation of Frr in control condition or in presence of 1 M TMAO, Glycerol or Betaine at different temperatures
-Temp_assay <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation_assays/Control_TMAO_Betaine_Glycerol_Temp_assay.csv")
+Temp_assay <- read.csv(paste(Path, "/Validations/C6/Frr_aggregation_assays/Control_TMAO_Betaine_Glycerol_Temp_assay.csv", sep=""))
 
 Temp_assay_2 <- Temp_assay %>%
   group_by(Condition) %>%
@@ -44,12 +48,12 @@ p1 <- ggplot(Temp_assay_2, aes(x=Temperature, y=Y_percentage)) +
   ylab("Relative absorbance") + 
   xlab("Temperature")
 
-ggsave(paste("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation/Frr_aggregation_temperature_dependance.pdf", sep=""), plot = p1, height = 4, width=5)
+ggsave(paste(Path, "/Validations/Figures/Frr_aggregation_temperature_dependance.pdf", sep=""), plot = p1, height = 4, width=5)
 
 # Aggregation assay at 76?
 # Protein concentration: 0.3 mg/ml
 # Time of incubation: 5 minutes
-Agg_assay <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Frr_aggregation_assays/All_compounds_Bradford_assay.csv")
+Agg_assay <- read.csv(paste(Path, "/Validations/C6/Frr_aggregation_assays/All_compounds_Bradford_assay.csv", sep=""))
 
 Background = mean(Temp_assay$Absorbance[Temp_assay$Sample == "Negative"])
 
@@ -62,6 +66,7 @@ Agg_assay %<>%
 median_line <- Agg_assay %>%
   group_by(Condition) %>%
   summarise(Median = median(Y_scaled))
+
 sm_list <- c("Control", "TMAO", "Betaine", "Glycerol", "Proline", "Glucose", "Trehalose")
 Agg_assay$Condition <- base::factor(Agg_assay$Condition, levels=sm_list)
 median_line$Condition <- factor(median_line$Condition, levels = sm_list)
@@ -82,10 +87,10 @@ p2 <- ggplot() +
   ylab("Relative protein concentration") + 
   xlab("Compound")
 
-ggsave(paste("/Users/moni/Documents/Phd/Osmolyte_paper/Figure5G.pdf", sep=""), plot = p2, height = 4, width=3.5)
+ggsave(paste(Path, "/Validations/Figures/Figure5G.pdf", sep=""), plot = p2, height = 4, width=3.5)
 
 # Gnd resolubilisation assay for control and betaine
-Gnd_assay <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Gnd_aggregation/Other_detergent_resulibilisation_2.csv")
+Gnd_assay <- read.csv(paste(Path, "/Validations/C6/Gnd_aggregation/Other_detergent_resulibilisation_2.csv", sep=""))
 
 Gnd_assay %<>%
   group_by(Condition) %>%
@@ -104,21 +109,9 @@ ggplot(Gnd_assay, aes(x=Det_concentration, y=scaled)) +
   ylab("Resolubilised protein concentration") + 
   xlab("Detergent concentration [%]")
 
-ggplot(Gnd_assay, aes(x=Det_concentration, y=Value)) +
-  stat_summary(aes(col = Condition), fun.data=mean_sdl, fun.args = list(mult=1), 
-               geom="errorbar", width=0.01) +
-  stat_summary(aes(fill = Condition), fun.data=mean_sdl, fun.args = list(mult=1), 
-               geom="ribbon", alpha=0.2) +
-  stat_summary(aes(col = Condition), fun=mean, geom="point", size=3) +
-  stat_summary(aes(col = Condition), fun=mean, geom="line") +
-  theme_classic() +
-  scale_color_manual(values = c(Control = "azure3", my_palette["Betaine"])) +
-  scale_fill_manual(values = c(Control = "azure3", my_palette["Betaine"])) +
-  ylab("Resolubilised protein concentration") + 
-  xlab("Detergent concentration [%]")
 
 ### proteolysis_test for Gnd 
-proteolysis_data <- read.csv("/Users/moni/Documents/Phd/Collaborations/C6/Aggregation_proteolysis/220127_proteolysis_test_aggregate.csv")
+proteolysis_data <- read.csv(paste(Path, "/Validations/C6/Aggregation_proteolysis/220127_proteolysis_test_aggregate.csv", sep=""))
 
 p3 <- ggplot(proteolysis_data, aes(x=Time, y=y_scaled)) +
   stat_summary(aes(group = Condition), fun.data=mean_sdl, fun.args = list(mult=1), 
@@ -139,7 +132,7 @@ p3 <- ggplot(proteolysis_data, aes(x=Time, y=y_scaled)) +
   scale_fill_manual(values = c(Control = "grey75", my_palette[c("Betaine", "Proline")])) +
   ylab("Relative protein concentration") + 
   xlab("PK digestion time [min]")
-ggsave(paste("/Users/moni/Documents/Phd/Osmolyte_paper/Figure5I.pdf", sep=""), plot = p3, height = 4, width=4)
+ggsave(paste(Path, "/Validations/Figures/Figure5I.pdf", sep=""), plot = p3, height = 4, width=4)
 
 
 
