@@ -21,7 +21,7 @@ path <- "/Volumes/My Passport for Mac/Final_data/"
 # Calculate whether the protein precipitates based on our TPP and Savitski published dataset
 source("Supportive_functions/Non_precipitator_calculation_functions.R")
 # Mostly plotting functions for thermal denaturation data
-source("/Users/moni/Documents/Phd/Scripts/post_analysis_functions.R")
+source("Supportive_functions/post_analysis_functions.R")
 # Script to compare the features between two protein groups
 source("Supportive_functions/Structural_predictions_diff_test_functions.R")
 
