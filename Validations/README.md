@@ -28,5 +28,5 @@ This repository contains the collection of scripts used to analyse and plot the 
     - 6E
  
  - [Final_single_melting_point_analysis.R](Final_single_melting_point_analysis.R) combines the melting temperatures measured by DSF for purified proteins, fit by [Single_melting_transition_fit.py](Single_melting_transition_fit.py). The script then further combines the data from LiP and calculates the correlations.
-  - The following figures were produced with this script:
-    - 3E, 3F
+    - The following figures were produced with this script:
+      - 3E, 3F
