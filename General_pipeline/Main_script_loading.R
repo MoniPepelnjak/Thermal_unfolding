@@ -32,24 +32,24 @@ source("aggregate_scores.R")
 source("area_calculation.R")
 
 ### Import Spectronaut search data and transform them to python-input-format
-path_file <- read.csv("~/Documents/Phd/Experiments/TD_analysis/Path_directions.csv")
+path_file <- read.csv("~/Documents/Phd/Collaborations/110/Path_directions.csv")
 
-fasta_ecoli <- read.fasta("/Users/moni/Documents/Phd/databases/official_161018_uniprot_ecoli_K12.fasta", "AA",
+fasta_ecoli <- read.fasta("~/Documents/Phd/Collaborations/110/200320_human_PK_iRT.fasta", "AA",
                           as.string = TRUE, set.attributes = FALSE)
 
 # Define small molecules that you wish to analyse
-all_compounds <- c("TMAO")
+all_compounds <- c("ATP")
 
 # Define the common path, where you would want to save your data for fitting
 # You should then keep the same structure of files such that the data from python can be loaded directly
-common_path <- "/Volumes/My Passport for Mac/Fitting/Output/Fitting/"
+common_path <- "~/Documents/Phd/Collaborations/110/Fitting/"
 
 ### Import Spectronaut search data and min-max scale them to python-input-format
 # Path file should include the experiment number and the small molecule
 # The files will be saved in the folder: Common_path/Experiment_number/Small_molecule/python_import/Small_molecule_trypticity.csv
 # Example for TMAO: Common_path/023/TMAO/python_import/TMAO_FT.csv
 for(i in all_compounds){
-  Spectronaut_to_python(i, path_file,common_path = common_path)}
+  Spectronaut_to_python(i, path_file,common_path = common_path,fasta = "human")}
 
 ### Transform files from python #########
 # Define the empty list so it can be used 
